@@ -1,0 +1,35 @@
+import matplotlib.pyplot as plt
+
+# Data points for the customer journey
+x = [1, 2, 3, 4, 5, 6]
+y = [1, 2, 3, 4, 5, 6]
+labels = [
+    "Customer buys a bag of dog food as their first purchase",
+    "Purchases Flea & Tick medication through Chewy Pharmacy",
+    "Switches to Autoship and adds premium treats",
+    "Signs up for CarePlus pet insurance",
+    "Adds supplements and switches to vet diet food",
+    "Further long-term NSPAC expansion as customer deepens their relationship with Chewy"
+]
+
+# Create the plot
+plt.figure(figsize=(10, 6))
+plt.plot(x, y, marker='o', linestyle='-', color='b')
+plt.fill_between(x, y, alpha=0.1, color='blue')
+
+# Annotate the points
+for i, label in enumerate(labels):
+    plt.annotate(label, (x[i], y[i]), textcoords="offset points", xytext=(0,10), ha='center')
+
+# Labels and title
+plt.xlabel('Time as a Chewy Customer')
+plt.ylabel('NSPAC')
+plt.title('Illustrative Customer Journey')
+plt.grid(True)
+plt.xticks(x, x)
+
+# Save the plot as an image file
+plt.savefig('customer_journey.png')
+
+# Show the plot
+plt.show()
